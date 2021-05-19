@@ -11,15 +11,15 @@ namespace TimeTableT.Controllers
 {
     class LecturerController
     {
-        public static string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=test;";
+        public static string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=itpm;";
         public static string AddLecturer(Lecturer lecturer)
         {
             string query = "INSERT INTO Lecturer(`lecturername`,`center`,`employeeid`,`building`,`faculty`,`level`," +
                            "`department`,`rank`) " +
                            "VALUES " +
-                           "('"+ lecturer.lecturername + "', '" + lecturer.center + "', '" + lecturer.employeeid + "', " +
-                           "'" + lecturer.building + "','" + lecturer.faculty + "','"+ lecturer.level + "'," +
-                           "'"+ lecturer.department + "','"+ lecturer.rank + "')";
+                           "('" + lecturer.lecturername + "', '" + lecturer.center + "', '" + lecturer.employeeid + "', " +
+                           "'" + lecturer.building + "','" + lecturer.faculty + "','" + lecturer.level + "'," +
+                           "'" + lecturer.department + "','" + lecturer.rank + "')";
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -28,7 +28,7 @@ namespace TimeTableT.Controllers
                 databaseConnection.Open();
                 MySqlDataReader myReader = commandDatabase.ExecuteReader();
                 databaseConnection.Close();
-                return "User succesfully registered";
+                return "Lecturer succesfully registered";
             }
             catch (Exception ex)
             {
@@ -46,12 +46,12 @@ namespace TimeTableT.Controllers
             MySqlDataReader reader;
             DataTable dt = new DataTable();
             dt.Clear();
-            dt.Columns.AddRange(new DataColumn[5] { 
+            dt.Columns.AddRange(new DataColumn[5] {
                     new DataColumn("ID", typeof(int)),
                     new DataColumn("Name", typeof(string)),
                     new DataColumn("Emp ID", typeof(string)),
                     new DataColumn("Faculty", typeof(string)),
-                    new DataColumn("Level",typeof(string)) 
+                    new DataColumn("Level",typeof(string))
             });
             try
             {
@@ -71,6 +71,44 @@ namespace TimeTableT.Controllers
                 }
                 databaseConnection.Close();
                 return dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("No rows found.");
+                return null;
+            }
+        }
+
+        public static List<MyItem> FilterLecturersSession(string filtertext)
+        {
+            string query = "SELECT lecturerid, lecturername FROM Lecturer " +
+                           "where lecturername like '%" + filtertext + "%'";
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+            List<MyItem> list = new List<MyItem>();
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        MyItem item = new MyItem();
+                        item.value = reader.GetInt32(0);
+                        item.text = reader.GetString(1);
+                        list.Add(item);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                    return null;
+                }
+                databaseConnection.Close();
+                return list;
             }
             catch (Exception ex)
             {
@@ -123,9 +161,9 @@ namespace TimeTableT.Controllers
 
         public static string UpdateLecturer(Lecturer lecturer)
         {
-            string query = "UPDATE Lecturer SET `lecturername`='"+ lecturer.lecturername + "', " +
-                           "`center`='"+ lecturer.center + "', " +
-                           "`employeeid`='"+ lecturer.employeeid + "', " +
+            string query = "UPDATE Lecturer SET `lecturername`='" + lecturer.lecturername + "', " +
+                           "`center`='" + lecturer.center + "', " +
+                           "`employeeid`='" + lecturer.employeeid + "', " +
                            "`building`='" + lecturer.building + "', " +
                            "`faculty`='" + lecturer.faculty + "', " +
                            "`level`='" + lecturer.level + "', " +
@@ -141,7 +179,7 @@ namespace TimeTableT.Controllers
                 databaseConnection.Open();
                 reader = commandDatabase.ExecuteReader();
                 databaseConnection.Close();
-                return "User succesfully updated";
+                return "Lecturer succesfully updated";
             }
             catch (Exception ex)
             {
@@ -161,7 +199,7 @@ namespace TimeTableT.Controllers
                 databaseConnection.Open();
                 reader = commandDatabase.ExecuteReader();
                 databaseConnection.Close();
-                return "User succesfully removed";
+                return "Lecturer succesfully removed";
             }
             catch (Exception ex)
             {

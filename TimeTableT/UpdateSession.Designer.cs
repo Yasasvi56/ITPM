@@ -30,34 +30,35 @@ namespace TimeTableT
         private void InitializeComponent()
         {
             this.label4 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabSession = new System.Windows.Forms.TabControl();
+            this.selectGroupTab = new System.Windows.Forms.TabPage();
+            this.lblsessionid = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comboTag = new System.Windows.Forms.ComboBox();
+            this.comboSubject = new System.Windows.Forms.ComboBox();
+            this.comboGroup = new System.Windows.Forms.ComboBox();
+            this.txtNoOfStudent = new System.Windows.Forms.TextBox();
+            this.txtDuration = new System.Windows.Forms.TextBox();
+            this.selectLecturersTab = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.btnUnselect = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.listSelectedLecturers = new System.Windows.Forms.ListBox();
+            this.listAllLecturers = new System.Windows.Forms.ListBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabSession.SuspendLayout();
+            this.selectGroupTab.SuspendLayout();
+            this.selectLecturersTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -71,39 +72,49 @@ namespace TimeTableT
             this.label4.TabIndex = 41;
             this.label4.Text = "Update Session";
             // 
-            // tabControl1
+            // tabSession
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(15, 76);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(611, 293);
-            this.tabControl1.TabIndex = 40;
+            this.tabSession.Controls.Add(this.selectGroupTab);
+            this.tabSession.Controls.Add(this.selectLecturersTab);
+            this.tabSession.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabSession.Location = new System.Drawing.Point(15, 76);
+            this.tabSession.Name = "tabSession";
+            this.tabSession.SelectedIndex = 0;
+            this.tabSession.Size = new System.Drawing.Size(611, 293);
+            this.tabSession.TabIndex = 40;
             // 
-            // tabPage1
+            // selectGroupTab
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(98)))), ((int)(((byte)(117)))));
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.comboBox5);
-            this.tabPage1.Controls.Add(this.comboBox2);
-            this.tabPage1.Controls.Add(this.comboBox1);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 27);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(603, 262);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Select Group , Subject & Tag";
+            this.selectGroupTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(98)))), ((int)(((byte)(117)))));
+            this.selectGroupTab.Controls.Add(this.lblsessionid);
+            this.selectGroupTab.Controls.Add(this.label3);
+            this.selectGroupTab.Controls.Add(this.btnNext);
+            this.selectGroupTab.Controls.Add(this.btnClear);
+            this.selectGroupTab.Controls.Add(this.label9);
+            this.selectGroupTab.Controls.Add(this.label8);
+            this.selectGroupTab.Controls.Add(this.label7);
+            this.selectGroupTab.Controls.Add(this.label2);
+            this.selectGroupTab.Controls.Add(this.label1);
+            this.selectGroupTab.Controls.Add(this.comboTag);
+            this.selectGroupTab.Controls.Add(this.comboSubject);
+            this.selectGroupTab.Controls.Add(this.comboGroup);
+            this.selectGroupTab.Controls.Add(this.txtNoOfStudent);
+            this.selectGroupTab.Controls.Add(this.txtDuration);
+            this.selectGroupTab.Location = new System.Drawing.Point(4, 27);
+            this.selectGroupTab.Name = "selectGroupTab";
+            this.selectGroupTab.Padding = new System.Windows.Forms.Padding(3);
+            this.selectGroupTab.Size = new System.Drawing.Size(603, 262);
+            this.selectGroupTab.TabIndex = 0;
+            this.selectGroupTab.Text = "Select Group , Subject & Tag";
+            // 
+            // lblsessionid
+            // 
+            this.lblsessionid.AutoSize = true;
+            this.lblsessionid.Location = new System.Drawing.Point(339, 16);
+            this.lblsessionid.Name = "lblsessionid";
+            this.lblsessionid.Size = new System.Drawing.Size(0, 18);
+            this.lblsessionid.TabIndex = 39;
+            this.lblsessionid.Visible = false;
             // 
             // label3
             // 
@@ -116,29 +127,30 @@ namespace TimeTableT
             this.label3.TabIndex = 38;
             this.label3.Text = "Hrs";
             // 
-            // button2
+            // btnNext
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(112)))), ((int)(((byte)(147)))));
-            this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(242)))), ((int)(((byte)(246)))));
-            this.button2.Location = new System.Drawing.Point(430, 194);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 47);
-            this.button2.TabIndex = 37;
-            this.button2.Text = "Next";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(112)))), ((int)(((byte)(147)))));
+            this.btnNext.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(242)))), ((int)(((byte)(246)))));
+            this.btnNext.Location = new System.Drawing.Point(430, 194);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(134, 47);
+            this.btnNext.TabIndex = 37;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // button1
+            // btnClear
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(142)))), ((int)(((byte)(53)))));
-            this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(242)))), ((int)(((byte)(246)))));
-            this.button1.Location = new System.Drawing.Point(290, 194);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 47);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "Clear";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(142)))), ((int)(((byte)(53)))));
+            this.btnClear.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(242)))), ((int)(((byte)(246)))));
+            this.btnClear.Location = new System.Drawing.Point(290, 194);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(134, 47);
+            this.btnClear.TabIndex = 36;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
             // 
             // label9
             // 
@@ -195,67 +207,75 @@ namespace TimeTableT
             this.label1.TabIndex = 28;
             this.label1.Text = "Select Tag";
             // 
-            // comboBox5
+            // comboTag
             // 
-            this.comboBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(156, 57);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(149, 26);
-            this.comboBox5.TabIndex = 27;
+            this.comboTag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.comboTag.FormattingEnabled = true;
+            this.comboTag.Items.AddRange(new object[] {
+            "Lectures",
+            "Tute",
+            "Labs"});
+            this.comboTag.Location = new System.Drawing.Point(156, 57);
+            this.comboTag.Name = "comboTag";
+            this.comboTag.Size = new System.Drawing.Size(149, 26);
+            this.comboTag.TabIndex = 27;
             // 
-            // comboBox2
+            // comboSubject
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(156, 139);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(149, 26);
-            this.comboBox2.TabIndex = 24;
+            this.comboSubject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.comboSubject.FormattingEnabled = true;
+            this.comboSubject.Location = new System.Drawing.Point(156, 139);
+            this.comboSubject.Name = "comboSubject";
+            this.comboSubject.Size = new System.Drawing.Size(149, 26);
+            this.comboSubject.TabIndex = 24;
             // 
-            // comboBox1
+            // comboGroup
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(156, 98);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(149, 26);
-            this.comboBox1.TabIndex = 23;
+            this.comboGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.comboGroup.FormattingEnabled = true;
+            this.comboGroup.Items.AddRange(new object[] {
+            "Group01",
+            "Group02",
+            "Group03"});
+            this.comboGroup.Location = new System.Drawing.Point(156, 98);
+            this.comboGroup.Name = "comboGroup";
+            this.comboGroup.Size = new System.Drawing.Size(149, 26);
+            this.comboGroup.TabIndex = 23;
             // 
-            // textBox3
+            // txtNoOfStudent
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.textBox3.Location = new System.Drawing.Point(464, 59);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(68, 26);
-            this.textBox3.TabIndex = 22;
+            this.txtNoOfStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.txtNoOfStudent.Location = new System.Drawing.Point(464, 59);
+            this.txtNoOfStudent.Name = "txtNoOfStudent";
+            this.txtNoOfStudent.Size = new System.Drawing.Size(68, 26);
+            this.txtNoOfStudent.TabIndex = 22;
             // 
-            // textBox2
+            // txtDuration
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.textBox2.Location = new System.Drawing.Point(464, 98);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(68, 26);
-            this.textBox2.TabIndex = 21;
+            this.txtDuration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.txtDuration.Location = new System.Drawing.Point(464, 98);
+            this.txtDuration.Name = "txtDuration";
+            this.txtDuration.Size = new System.Drawing.Size(68, 26);
+            this.txtDuration.TabIndex = 21;
             // 
-            // tabPage2
+            // selectLecturersTab
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(98)))), ((int)(((byte)(117)))));
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.button7);
-            this.tabPage2.Controls.Add(this.button6);
-            this.tabPage2.Controls.Add(this.button5);
-            this.tabPage2.Controls.Add(this.button3);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.listBox2);
-            this.tabPage2.Controls.Add(this.listBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 27);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(603, 262);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Select Lecturers";
+            this.selectLecturersTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(98)))), ((int)(((byte)(117)))));
+            this.selectLecturersTab.Controls.Add(this.label6);
+            this.selectLecturersTab.Controls.Add(this.label5);
+            this.selectLecturersTab.Controls.Add(this.btnSelect);
+            this.selectLecturersTab.Controls.Add(this.btnUnselect);
+            this.selectLecturersTab.Controls.Add(this.btnBack);
+            this.selectLecturersTab.Controls.Add(this.btnUpdate);
+            this.selectLecturersTab.Controls.Add(this.listSelectedLecturers);
+            this.selectLecturersTab.Controls.Add(this.listAllLecturers);
+            this.selectLecturersTab.Controls.Add(this.button3);
+            this.selectLecturersTab.Location = new System.Drawing.Point(4, 27);
+            this.selectLecturersTab.Name = "selectLecturersTab";
+            this.selectLecturersTab.Padding = new System.Windows.Forms.Padding(3);
+            this.selectLecturersTab.Size = new System.Drawing.Size(603, 262);
+            this.selectLecturersTab.TabIndex = 1;
+            this.selectLecturersTab.Text = "Select Lecturers";
             // 
             // label6
             // 
@@ -279,41 +299,77 @@ namespace TimeTableT
             this.label5.TabIndex = 43;
             this.label5.Text = "All Lecturers";
             // 
-            // button7
+            // btnSelect
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(129)))), ((int)(((byte)(122)))));
-            this.button7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(58)))), ((int)(((byte)(71)))));
-            this.button7.Location = new System.Drawing.Point(268, 75);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(74, 30);
-            this.button7.TabIndex = 42;
-            this.button7.Text = ">>";
-            this.button7.UseVisualStyleBackColor = false;
+            this.btnSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(129)))), ((int)(((byte)(122)))));
+            this.btnSelect.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(58)))), ((int)(((byte)(71)))));
+            this.btnSelect.Location = new System.Drawing.Point(268, 75);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(74, 30);
+            this.btnSelect.TabIndex = 42;
+            this.btnSelect.Text = ">>";
+            this.btnSelect.UseVisualStyleBackColor = false;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
-            // button6
+            // btnUnselect
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(129)))), ((int)(((byte)(122)))));
-            this.button6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(58)))), ((int)(((byte)(71)))));
-            this.button6.Location = new System.Drawing.Point(268, 120);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(74, 30);
-            this.button6.TabIndex = 41;
-            this.button6.Text = "<<";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnUnselect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(129)))), ((int)(((byte)(122)))));
+            this.btnUnselect.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnselect.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(58)))), ((int)(((byte)(71)))));
+            this.btnUnselect.Location = new System.Drawing.Point(268, 120);
+            this.btnUnselect.Name = "btnUnselect";
+            this.btnUnselect.Size = new System.Drawing.Size(74, 30);
+            this.btnUnselect.TabIndex = 41;
+            this.btnUnselect.Text = "<<";
+            this.btnUnselect.UseVisualStyleBackColor = false;
+            this.btnUnselect.Click += new System.EventHandler(this.btnUnselect_Click);
             // 
-            // button5
+            // btnBack
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(112)))), ((int)(((byte)(147)))));
-            this.button5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(242)))), ((int)(((byte)(246)))));
-            this.button5.Location = new System.Drawing.Point(150, 194);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(134, 47);
-            this.button5.TabIndex = 40;
-            this.button5.Text = "Back";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(112)))), ((int)(((byte)(147)))));
+            this.btnBack.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(242)))), ((int)(((byte)(246)))));
+            this.btnBack.Location = new System.Drawing.Point(290, 194);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(134, 47);
+            this.btnBack.TabIndex = 40;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(50)))));
+            this.btnUpdate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(242)))), ((int)(((byte)(246)))));
+            this.btnUpdate.Location = new System.Drawing.Point(430, 194);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(134, 47);
+            this.btnUpdate.TabIndex = 38;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // listSelectedLecturers
+            // 
+            this.listSelectedLecturers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.listSelectedLecturers.FormattingEnabled = true;
+            this.listSelectedLecturers.ItemHeight = 18;
+            this.listSelectedLecturers.Location = new System.Drawing.Point(366, 46);
+            this.listSelectedLecturers.Name = "listSelectedLecturers";
+            this.listSelectedLecturers.Size = new System.Drawing.Size(139, 130);
+            this.listSelectedLecturers.TabIndex = 1;
+            // 
+            // listAllLecturers
+            // 
+            this.listAllLecturers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.listAllLecturers.FormattingEnabled = true;
+            this.listAllLecturers.ItemHeight = 18;
+            this.listAllLecturers.Location = new System.Drawing.Point(104, 46);
+            this.listAllLecturers.Name = "listAllLecturers";
+            this.listAllLecturers.Size = new System.Drawing.Size(139, 130);
+            this.listAllLecturers.TabIndex = 0;
             // 
             // button3
             // 
@@ -326,38 +382,7 @@ namespace TimeTableT
             this.button3.TabIndex = 39;
             this.button3.Text = "Clear";
             this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(50)))));
-            this.button4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(242)))), ((int)(((byte)(246)))));
-            this.button4.Location = new System.Drawing.Point(290, 194);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(134, 47);
-            this.button4.TabIndex = 38;
-            this.button4.Text = "Update";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // listBox2
-            // 
-            this.listBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 18;
-            this.listBox2.Location = new System.Drawing.Point(366, 46);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(139, 130);
-            this.listBox2.TabIndex = 1;
-            // 
-            // listBox1
-            // 
-            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(104, 46);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(139, 130);
-            this.listBox1.TabIndex = 0;
+            this.button3.Visible = false;
             // 
             // UpdateSession
             // 
@@ -366,14 +391,14 @@ namespace TimeTableT
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(98)))), ((int)(((byte)(117)))));
             this.ClientSize = new System.Drawing.Size(639, 382);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabSession);
             this.Name = "UpdateSession";
             this.Text = "UpdateSession";
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabSession.ResumeLayout(false);
+            this.selectGroupTab.ResumeLayout(false);
+            this.selectGroupTab.PerformLayout();
+            this.selectLecturersTab.ResumeLayout(false);
+            this.selectLecturersTab.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,30 +407,31 @@ namespace TimeTableT
         #endregion
 
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabControl tabSession;
+        private System.Windows.Forms.TabPage selectGroupTab;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ComboBox comboTag;
+        private System.Windows.Forms.ComboBox comboSubject;
+        private System.Windows.Forms.ComboBox comboGroup;
+        private System.Windows.Forms.TextBox txtNoOfStudent;
+        private System.Windows.Forms.TextBox txtDuration;
+        private System.Windows.Forms.TabPage selectLecturersTab;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.Button btnUnselect;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.ListBox listSelectedLecturers;
+        private System.Windows.Forms.ListBox listAllLecturers;
+        private System.Windows.Forms.Label lblsessionid;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.ListBox listBox1;
     }
 }
