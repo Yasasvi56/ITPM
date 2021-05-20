@@ -20,7 +20,7 @@ namespace TimeTableT
             //Application.Run(new ManageLecturers());
             //Application.Run(new AddSubject());
             //Application.Run(new ManageSubjects());
-            Application.Run(new AddSession());
+            Application.Run(new Welcome());
             //Application.Run(new ManageSessionsF());
             //Application.Run(new UpdateSession());
             //Application.Run(new View());

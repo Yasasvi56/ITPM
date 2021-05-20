@@ -136,9 +136,9 @@ namespace TimeTableT
         private void AddSession_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'itpmDataSet.lecturer' table. You can move, or remove it, as needed.
-            this.lecturerTableAdapter.Fill(this.itpmDataSet.lecturer);
+            //this.lecturerTableAdapter.Fill(this.itpmDataSet.lecturer);
             // TODO: This line of code loads data into the 'itpmDataSet.subject' table. You can move, or remove it, as needed.
-            this.subjectTableAdapter.Fill(this.itpmDataSet.subject);
+           // this.subjectTableAdapter.Fill(this.itpmDataSet.subject);
 
         }
     }

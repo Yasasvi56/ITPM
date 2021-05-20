@@ -29,12 +29,15 @@ namespace TimeTableT
             try
             {
                 gridlecturers.DataSource = LecturerController.FilterLecturers(filtertext);
-                gridlecturers.RowHeadersVisible = false;
-                gridlecturers.Columns[0].Width = 50;
-                gridlecturers.Columns[1].Width = 150;
-                gridlecturers.Columns[2].Width = 120;
-                gridlecturers.Columns[3].Width = 120;
-                gridlecturers.Columns[4].Width = 95;
+                if (gridlecturers.DataSource != null)
+                {
+                    gridlecturers.RowHeadersVisible = false;
+                    gridlecturers.Columns[0].Width = 50;
+                    gridlecturers.Columns[1].Width = 150;
+                    gridlecturers.Columns[2].Width = 120;
+                    gridlecturers.Columns[3].Width = 120;
+                    gridlecturers.Columns[4].Width = 95;
+                }
             }
             catch (Exception ex) 
             {

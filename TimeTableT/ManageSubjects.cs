@@ -28,12 +28,15 @@ namespace TimeTableT
             try
             {
                 gridSubject.DataSource = SubjectController.FilterSubjects(filtertext);
-                gridSubject.RowHeadersVisible = false;
-                gridSubject.Columns[0].Width = 50;
-                gridSubject.Columns[1].Width = 175;
-                gridSubject.Columns[2].Width = 145;
-                gridSubject.Columns[3].Width = 145;
-                gridSubject.Columns[4].Width = 94;
+                if (gridSubject.DataSource != null)
+                {
+                    gridSubject.RowHeadersVisible = false;
+                    gridSubject.Columns[0].Width = 50;
+                    gridSubject.Columns[1].Width = 175;
+                    gridSubject.Columns[2].Width = 145;
+                    gridSubject.Columns[3].Width = 145;
+                    gridSubject.Columns[4].Width = 94;
+                }
             }
             catch (Exception ex)
             {

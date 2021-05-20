@@ -384,6 +384,9 @@ namespace TimeTableT
             this.Controls.Add(this.txtemployeeid);
             this.Controls.Add(this.txtrank);
             this.Controls.Add(this.txtlecturername);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(715, 674);
+            this.MinimumSize = new System.Drawing.Size(715, 674);
             this.Name = "ManageLecturers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageLecturers";

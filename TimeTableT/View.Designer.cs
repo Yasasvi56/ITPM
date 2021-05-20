@@ -225,6 +225,9 @@ namespace TimeTableT
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(383, 391);
+            this.MinimumSize = new System.Drawing.Size(383, 391);
             this.Name = "View";
             this.Text = "View";
             this.ResumeLayout(false);

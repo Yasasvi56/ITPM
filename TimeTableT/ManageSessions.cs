@@ -29,12 +29,15 @@ namespace TimeTableT
             {
                 staticsessionid = 0;
                 gridSession.DataSource = SessionController.FilterSessions(lecturer, year);
-                gridSession.RowHeadersVisible = false;
-                gridSession.Columns[0].Width = 50;
-                gridSession.Columns[1].Width = 150;
-                gridSession.Columns[2].Width = 120;
-                gridSession.Columns[3].Width = 120;
-                gridSession.Columns[4].Width = 95;
+                if (gridSession.DataSource != null)
+                {
+                    gridSession.RowHeadersVisible = false;
+                    gridSession.Columns[0].Width = 50;
+                    gridSession.Columns[1].Width = 150;
+                    gridSession.Columns[2].Width = 120;
+                    gridSession.Columns[3].Width = 120;
+                    gridSession.Columns[4].Width = 95;
+                }
             }
             catch (Exception ex)
             {

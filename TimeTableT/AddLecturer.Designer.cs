@@ -60,7 +60,6 @@ namespace TimeTableT
             this.txtlecturername.Name = "txtlecturername";
             this.txtlecturername.Size = new System.Drawing.Size(149, 20);
             this.txtlecturername.TabIndex = 0;
-            
             // 
             // txtrank
             // 
@@ -313,6 +312,9 @@ namespace TimeTableT
             this.Controls.Add(this.txtrank);
             this.Controls.Add(this.txtlecturername);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(673, 413);
+            this.MinimumSize = new System.Drawing.Size(673, 413);
             this.Name = "AddLecturer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

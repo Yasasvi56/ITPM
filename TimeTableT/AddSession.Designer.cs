@@ -403,6 +403,8 @@ namespace TimeTableT
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tabSession);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(652, 420);
+            this.MinimumSize = new System.Drawing.Size(652, 420);
             this.Name = "AddSession";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddSession";

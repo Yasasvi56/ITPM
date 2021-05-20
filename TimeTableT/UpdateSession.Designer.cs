@@ -392,6 +392,9 @@ namespace TimeTableT
             this.ClientSize = new System.Drawing.Size(639, 382);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tabSession);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(655, 421);
+            this.MinimumSize = new System.Drawing.Size(655, 421);
             this.Name = "UpdateSession";
             this.Text = "UpdateSession";
             this.tabSession.ResumeLayout(false);

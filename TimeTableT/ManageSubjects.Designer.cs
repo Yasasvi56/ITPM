@@ -396,7 +396,9 @@ namespace TimeTableT
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
-            //this.Name = "ManageSubjects";
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(777, 668);
+            this.MinimumSize = new System.Drawing.Size(777, 668);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageSubjects";
             this.Load += new System.EventHandler(this.ManageSubjects_Load);
