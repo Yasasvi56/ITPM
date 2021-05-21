@@ -7,19 +7,19 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using TimeTableT.Models;
 
+
 namespace TimeTableT.Controllers
 {
-    class LecturerController
+    class WorkingWeekController
     {
         public static string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=itpm;";
-        public static string AddLecturer(Lecturer lecturer)
+
+        public static string AddWorkingWeek(WorkingWeek workingWeek)
         {
-            string query = "INSERT INTO Lecturer(`lecturername`,`center`,`employeeid`,`building`,`faculty`,`level`," +
-                           "`department`,`rank`) " +
+            string query = "INSERT INTO workingweek(`NoOfWorkingDates`,`WorkingDays`,`WorkingHours`,`WorkingMinutes`) " +
                            "VALUES " +
-                           "('"+ lecturer.lecturername + "', '" + lecturer.center + "', '" + lecturer.employeeid + "', " +
-                           "'" + lecturer.building + "','" + lecturer.faculty + "','"+ lecturer.level + "'," +
-                           "'"+ lecturer.department + "','"+ lecturer.rank + "')";
+                           "('" + workingWeek.noofworkingdays + "', '" + workingWeek.WorkingDays + "','" + workingWeek.WorkingHours + "', " +
+                           "'" + workingWeek.WorkingMinutes + "')";
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -28,7 +28,7 @@ namespace TimeTableT.Controllers
                 databaseConnection.Open();
                 MySqlDataReader myReader = commandDatabase.ExecuteReader();
                 databaseConnection.Close();
-                return "User succesfully registered";
+                return "succesfully registered";
             }
             catch (Exception ex)
             {
@@ -36,22 +36,23 @@ namespace TimeTableT.Controllers
             }
         }
 
-        public static DataTable FilterLecturers(string filtertext)
+        public static DataTable FilterWorkingWeek()
         {
-            string query = "SELECT lecturerid, lecturername, employeeid, faculty, level FROM Lecturer " +
-                           "where lecturername like '%" + filtertext + "%'";
+            string query = "SELECT WorkingWeekID , NoOfWorkingDates, WorkingDays, WorkingHours, WorkingMinutes FROM workingweek " +
+                           "where WorkingWeekID"; 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
             MySqlDataReader reader;
             DataTable dt = new DataTable();
             dt.Clear();
-            dt.Columns.AddRange(new DataColumn[5] { 
+            dt.Columns.AddRange(new DataColumn[5] {
                     new DataColumn("ID", typeof(int)),
-                    new DataColumn("Name", typeof(string)),
-                    new DataColumn("Emp ID", typeof(string)),
-                    new DataColumn("Faculty", typeof(string)),
-                    new DataColumn("Level",typeof(string)) 
+                    new DataColumn("No Of Working Dates", typeof(int)),
+                    new DataColumn("Working Dates", typeof(string)),
+                    new DataColumn("Working Hours", typeof(int)),
+                    new DataColumn("Working Minutes", typeof(int))
+
             });
             try
             {
@@ -61,8 +62,8 @@ namespace TimeTableT.Controllers
                 {
                     while (reader.Read())
                     {
-                        dt.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2),
-                            reader.GetString(3), reader.GetString(4));
+                        dt.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3),
+                            reader.GetString(4));
                     }
                 }
                 else
@@ -77,12 +78,12 @@ namespace TimeTableT.Controllers
                 Console.WriteLine("No rows found.");
                 return null;
             }
-        }
 
-        public static Lecturer SelectedLecturer(int lecturerid)
+        }
+        public static WorkingWeek SelectedWorkingWeek(int WorkingWeekid)
         {
-            string query = "SELECT lecturername, center, employeeid, building, faculty, level, department, rank " +
-                           " FROM Lecturer where lecturerid  = " + lecturerid;
+            string query = "SELECT NoOfWorkingDates, WorkingHours, WorkingMinutes" +
+                           " FROM workingweek where WorkingWeekID = " + WorkingWeekid;
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -93,19 +94,15 @@ namespace TimeTableT.Controllers
                 reader = commandDatabase.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    Lecturer lecturer = new Lecturer();
+                    WorkingWeek workingWeek = new WorkingWeek();
                     if (reader.Read())
                     {
-                        lecturer.lecturername = reader.GetString(0);
-                        lecturer.center = reader.GetString(1);
-                        lecturer.employeeid = reader.GetString(2);
-                        lecturer.building = reader.GetString(3);
-                        lecturer.faculty = reader.GetString(4);
-                        lecturer.level = reader.GetInt32(5);
-                        lecturer.department = reader.GetString(6);
-                        lecturer.rank = reader.GetString(7);
+                        workingWeek.noofworkingdays = reader.GetInt32(0); 
+                        workingWeek.WorkingHours = reader.GetInt32(1);
+                        workingWeek.WorkingMinutes = reader.GetInt32(2);
+                      
                     }
-                    return lecturer;
+                    return workingWeek;
                 }
                 else
                 {
@@ -121,17 +118,13 @@ namespace TimeTableT.Controllers
             }
         }
 
-        public static string UpdateLecturer(Lecturer lecturer)
+        public static string UpdateWorkingWeek(WorkingWeek workingWeek)
         {
-            string query = "UPDATE Lecturer SET `lecturername`='"+ lecturer.lecturername + "', " +
-                           "`center`='"+ lecturer.center + "', " +
-                           "`employeeid`='"+ lecturer.employeeid + "', " +
-                           "`building`='" + lecturer.building + "', " +
-                           "`faculty`='" + lecturer.faculty + "', " +
-                           "`level`='" + lecturer.level + "', " +
-                           "`department`='" + lecturer.department + "', " +
-                           "`rank`='" + lecturer.rank + "' " +
-                           " WHERE `lecturerid` = " + lecturer.lecturerid;
+            string query = "UPDATE workingweek SET `NoOfWorkingDates`='" + workingWeek.noofworkingdays + "', " +    
+                           "`WorkingDays`='" + workingWeek.WorkingDays + "'," +
+                           "`WorkingHours`='" + workingWeek.WorkingHours + "'," +
+                           "`WorkingMinutes`='" + workingWeek.WorkingMinutes + "' " +
+                           " WHERE `WorkingWeekID` = " + workingWeek.WorkingWeekID;
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -141,7 +134,7 @@ namespace TimeTableT.Controllers
                 databaseConnection.Open();
                 reader = commandDatabase.ExecuteReader();
                 databaseConnection.Close();
-                return "User succesfully updated";
+                return "succesfully updated";
             }
             catch (Exception ex)
             {
@@ -149,9 +142,9 @@ namespace TimeTableT.Controllers
             }
         }
 
-        public static string DeleteLecturer(int lecturerid)
+        public static string DeleteWorkingWeek(int workingWeekid)
         {
-            string query = "DELETE FROM Lecturer WHERE `lecturerid` = " + lecturerid;
+            string query = "DELETE FROM workingweek WHERE `WorkingWeekID` = " + workingWeekid;
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -161,7 +154,7 @@ namespace TimeTableT.Controllers
                 databaseConnection.Open();
                 reader = commandDatabase.ExecuteReader();
                 databaseConnection.Close();
-                return "User succesfully removed";
+                return "succesfully removed";
             }
             catch (Exception ex)
             {
@@ -171,3 +164,4 @@ namespace TimeTableT.Controllers
 
     }
 }
+

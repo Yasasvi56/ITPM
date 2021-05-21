@@ -16,14 +16,14 @@ namespace TimeTableT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddLecturer());
-            //Application.Run(new AddSubject());
-            //Application.Run(new AddSession());
-            //Application.Run(new ManageLecturers());
-            //Application.Run(new ManageSubjects());
-            //Application.Run(new ManageSessions());
-            //Application.Run(new UpdateSession());
-            //Application.Run(new View());
+            //Application.Run(new WorkingDateAndTimeForm());
+            //Application.Run(new UpdateWorkingDateAndTimeForm());
+            //Application.Run(new AddLocation());
+            //Application.Run(new AddWorkingWeek());
+            //Application.Run(new ListWorkingWeek());
+            //Application.Run(new NotAvailableTimeAllocation());
+            Application.Run(new ManageNotAvailableTime());
+
         }
     }
 }

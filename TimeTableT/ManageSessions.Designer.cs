@@ -297,7 +297,8 @@ namespace TimeTableT
             this.Controls.Add(this.comboBox5);
             this.Controls.Add(this.dataGridView1);
             
-            this.Text = "ManageSessions";
+            
+            this.Load += new System.EventHandler(this.ManageSessions_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);

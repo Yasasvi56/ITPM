@@ -16,5 +16,10 @@ namespace TimeTableT
         {
             InitializeComponent();
         }
+
+        private void ManageSessions_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
