@@ -59,13 +59,34 @@
     <Compile Include="AddSession.Designer.cs">
       <DependentUpon>AddSession.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddStudent.Designer.cs">
+      <DependentUpon>AddStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddSubject.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddSubject.Designer.cs">
       <DependentUpon>AddSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddTag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTag.Designer.cs">
+      <DependentUpon>AddTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consecutive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consecutive.Designer.cs">
+      <DependentUpon>Consecutive.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\LecturerController.cs" />
+    <Compile Include="Controllers\SessionsController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\TagController.cs" />
     <Compile Include="ManageLecturers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,13 +99,28 @@
     <Compile Include="ManageSessions.Designer.cs">
       <DependentUpon>ManageSessions.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageStudent.Designer.cs">
+      <DependentUpon>ManageStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageSubjects.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ManageSubjects.Designer.cs">
       <DependentUpon>ManageSubjects.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageTag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageTag.Designer.cs">
+      <DependentUpon>ManageTag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Lecturer.cs" />
+    <Compile Include="Models\Sessions.cs" />
+    <Compile Include="Models\Students.cs" />
+    <Compile Include="Models\Tag.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UpdateSession.cs">
@@ -105,8 +141,17 @@
     <EmbeddedResource Include="AddSession.resx">
       <DependentUpon>AddSession.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddStudent.resx">
+      <DependentUpon>AddStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddSubject.resx">
       <DependentUpon>AddSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTag.resx">
+      <DependentUpon>AddTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consecutive.resx">
+      <DependentUpon>Consecutive.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageLecturers.resx">
       <DependentUpon>ManageLecturers.cs</DependentUpon>
@@ -114,8 +159,14 @@
     <EmbeddedResource Include="ManageSessions.resx">
       <DependentUpon>ManageSessions.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManageStudent.resx">
+      <DependentUpon>ManageStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManageSubjects.resx">
       <DependentUpon>ManageSubjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageTag.resx">
+      <DependentUpon>ManageTag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

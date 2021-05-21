@@ -9,17 +9,16 @@ using TimeTableT.Models;
 
 namespace TimeTableT.Controllers
 {
-    class LecturerController
+    class StudentController
     {
         public static string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=itpm;";
-        public static string AddLecturer(Lecturer lecturer)
+        public static string AddStudent(Students students)
         {
-            string query = "INSERT INTO Lecturer(`lecturername`,`center`,`employeeid`,`building`,`faculty`,`level`," +
-                           "`department`,`rank`) " +
+            string query = "INSERT INTO students(`acadamicYearSem`,`programme`,`groupNo`,`subGroupNo`,`groupId`,`subGroupId`) " +
                            "VALUES " +
-                           "('"+ lecturer.lecturername + "', '" + lecturer.center + "', '" + lecturer.employeeid + "', " +
-                           "'" + lecturer.building + "','" + lecturer.faculty + "','"+ lecturer.level + "'," +
-                           "'"+ lecturer.department + "','"+ lecturer.rank + "')";
+                           "('" + students.acadamicYearSem + "', '" + students.programme + "', '" + students.groupNo + "', " +
+                           "'" + students.subGroupNo + "','" + students.groupId + "','" + students.subGroupId + "')";
+
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -36,22 +35,23 @@ namespace TimeTableT.Controllers
             }
         }
 
-        public static DataTable FilterLecturers(string filtertext)
+        public static DataTable FilterStudents()
         {
-            string query = "SELECT lecturerid, lecturername, employeeid, faculty, level FROM Lecturer " +
-                           "where lecturername like '%" + filtertext + "%'";
+            string query = "SELECT studentId, acadamicYearSem, programme, groupNo, subGroupNo,groupId,subGroupId FROM students";
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
             MySqlDataReader reader;
             DataTable dt = new DataTable();
             dt.Clear();
-            dt.Columns.AddRange(new DataColumn[5] { 
+            dt.Columns.AddRange(new DataColumn[7] {
                     new DataColumn("ID", typeof(int)),
-                    new DataColumn("Name", typeof(string)),
-                    new DataColumn("Emp ID", typeof(string)),
-                    new DataColumn("Faculty", typeof(string)),
-                    new DataColumn("Level",typeof(string)) 
+                    new DataColumn("Acadamic Year and Sem", typeof(string)),
+                    new DataColumn("Programme", typeof(string)),
+                    new DataColumn("Group No", typeof(int)),
+                    new DataColumn("Group ID",typeof(int)),
+                    new DataColumn("Sub Group No",typeof(string)),
+                    new DataColumn("Sub Group ID",typeof(string))
             });
             try
             {
@@ -62,7 +62,7 @@ namespace TimeTableT.Controllers
                     while (reader.Read())
                     {
                         dt.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2),
-                            reader.GetString(3), reader.GetString(4));
+                            reader.GetInt32(3), reader.GetInt32(4), reader.GetString(5), reader.GetString(6));
                     }
                 }
                 else
@@ -79,10 +79,13 @@ namespace TimeTableT.Controllers
             }
         }
 
-        public static Lecturer SelectedLecturer(int lecturerid)
+
+
+
+        public static Students SelectedStudents(int studentId)
         {
-            string query = "SELECT lecturername, center, employeeid, building, faculty, level, department, rank " +
-                           " FROM Lecturer where lecturerid  = " + lecturerid;
+            string query = "SELECT acadamicYearSem, programme, groupNo, subGroupNo, groupId, subGroupId " +
+                           " FROM Students where studentId  = " + studentId;
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -93,19 +96,18 @@ namespace TimeTableT.Controllers
                 reader = commandDatabase.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    Lecturer lecturer = new Lecturer();
+                    Students students = new Students();
                     if (reader.Read())
                     {
-                        lecturer.lecturername = reader.GetString(0);
-                        lecturer.center = reader.GetString(1);
-                        lecturer.employeeid = reader.GetString(2);
-                        lecturer.building = reader.GetString(3);
-                        lecturer.faculty = reader.GetString(4);
-                        lecturer.level = reader.GetInt32(5);
-                        lecturer.department = reader.GetString(6);
-                        lecturer.rank = reader.GetString(7);
+                        students.acadamicYearSem = reader.GetString(0);
+                        students.programme = reader.GetString(1);
+                        students.groupNo = reader.GetInt32(2);
+                        students.subGroupNo = reader.GetInt32(3);
+                        students.groupId = reader.GetString(4);
+                        students.subGroupId = reader.GetString(5);
+
                     }
-                    return lecturer;
+                    return students;
                 }
                 else
                 {
@@ -121,17 +123,15 @@ namespace TimeTableT.Controllers
             }
         }
 
-        public static string UpdateLecturer(Lecturer lecturer)
+        public static string UpdateStudents(Students students)
         {
-            string query = "UPDATE Lecturer SET `lecturername`='"+ lecturer.lecturername + "', " +
-                           "`center`='"+ lecturer.center + "', " +
-                           "`employeeid`='"+ lecturer.employeeid + "', " +
-                           "`building`='" + lecturer.building + "', " +
-                           "`faculty`='" + lecturer.faculty + "', " +
-                           "`level`='" + lecturer.level + "', " +
-                           "`department`='" + lecturer.department + "', " +
-                           "`rank`='" + lecturer.rank + "' " +
-                           " WHERE `lecturerid` = " + lecturer.lecturerid;
+            string query = "UPDATE students SET `acadamicYearSem`='" + students.acadamicYearSem + "', " +
+                           "`programme`='" + students.programme + "', " +
+                           "`groupNo`='" + students.groupNo + "', " +
+                           "`subGroupNo`='" + students.subGroupNo + "', " +
+                           "`groupId`='" + students.groupId + "', " +
+                           "`subGroupId`='" + students.subGroupId + "', " +
+                           " WHERE `studentId` =" + students.studentId;
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -149,9 +149,9 @@ namespace TimeTableT.Controllers
             }
         }
 
-        public static string DeleteLecturer(int lecturerid)
+        public static string DeleteStudents(int studentId)
         {
-            string query = "DELETE FROM Lecturer WHERE `lecturerid` = " + lecturerid;
+            string query = "DELETE FROM Students WHERE `studentId` = " + studentId;
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -168,6 +168,5 @@ namespace TimeTableT.Controllers
                 return ex.Message;
             }
         }
-
     }
 }

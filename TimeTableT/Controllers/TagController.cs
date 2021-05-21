@@ -7,19 +7,18 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using TimeTableT.Models;
 
+
 namespace TimeTableT.Controllers
 {
-    class LecturerController
+    class TagController
     {
         public static string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=itpm;";
-        public static string AddLecturer(Lecturer lecturer)
+        public static string AddTag(Tag tag)
         {
-            string query = "INSERT INTO Lecturer(`lecturername`,`center`,`employeeid`,`building`,`faculty`,`level`," +
-                           "`department`,`rank`) " +
+            string query = "INSERT INTO tag(`tagName`,`tagCode`,`relatedTag`) " +
                            "VALUES " +
-                           "('"+ lecturer.lecturername + "', '" + lecturer.center + "', '" + lecturer.employeeid + "', " +
-                           "'" + lecturer.building + "','" + lecturer.faculty + "','"+ lecturer.level + "'," +
-                           "'"+ lecturer.department + "','"+ lecturer.rank + "')";
+                           "('" + tag.tagName + "', '" + tag.tagCode + "', '" + tag.relatedTag + "')";
+
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -36,22 +35,20 @@ namespace TimeTableT.Controllers
             }
         }
 
-        public static DataTable FilterLecturers(string filtertext)
+        public static DataTable FilterTag()
         {
-            string query = "SELECT lecturerid, lecturername, employeeid, faculty, level FROM Lecturer " +
-                           "where lecturername like '%" + filtertext + "%'";
+            string query = "select tagId,tagName,tagCode,relatedTag FROM tag";
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
             MySqlDataReader reader;
             DataTable dt = new DataTable();
             dt.Clear();
-            dt.Columns.AddRange(new DataColumn[5] { 
-                    new DataColumn("ID", typeof(int)),
-                    new DataColumn("Name", typeof(string)),
-                    new DataColumn("Emp ID", typeof(string)),
-                    new DataColumn("Faculty", typeof(string)),
-                    new DataColumn("Level",typeof(string)) 
+            dt.Columns.AddRange(new DataColumn[4] {
+                    new DataColumn("ID", typeof(string)),
+                    new DataColumn("Tag Name", typeof(string)),
+                    new DataColumn("Tag Code", typeof(string)),
+                    new DataColumn("Related Tag", typeof(string)),
             });
             try
             {
@@ -61,8 +58,7 @@ namespace TimeTableT.Controllers
                 {
                     while (reader.Read())
                     {
-                        dt.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2),
-                            reader.GetString(3), reader.GetString(4));
+                        dt.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3));
                     }
                 }
                 else
@@ -79,10 +75,14 @@ namespace TimeTableT.Controllers
             }
         }
 
-        public static Lecturer SelectedLecturer(int lecturerid)
+
+
+
+
+        public static Tag SelectedTag(int tagId)
         {
-            string query = "SELECT lecturername, center, employeeid, building, faculty, level, department, rank " +
-                           " FROM Lecturer where lecturerid  = " + lecturerid;
+            string query = "SELECT tagName, tagCode, relatedTag " +
+                           " FROM Tag where tagId  = " + tagId;
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -93,19 +93,15 @@ namespace TimeTableT.Controllers
                 reader = commandDatabase.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    Lecturer lecturer = new Lecturer();
+                    Tag tag = new Tag();
                     if (reader.Read())
                     {
-                        lecturer.lecturername = reader.GetString(0);
-                        lecturer.center = reader.GetString(1);
-                        lecturer.employeeid = reader.GetString(2);
-                        lecturer.building = reader.GetString(3);
-                        lecturer.faculty = reader.GetString(4);
-                        lecturer.level = reader.GetInt32(5);
-                        lecturer.department = reader.GetString(6);
-                        lecturer.rank = reader.GetString(7);
+                        tag.tagName = reader.GetString(0);
+                        tag.tagCode = reader.GetString(1);
+                        tag.relatedTag = reader.GetString(2);
+
                     }
-                    return lecturer;
+                    return tag;
                 }
                 else
                 {
@@ -121,17 +117,12 @@ namespace TimeTableT.Controllers
             }
         }
 
-        public static string UpdateLecturer(Lecturer lecturer)
+        public static string UpdateTag(Tag tag)
         {
-            string query = "UPDATE Lecturer SET `lecturername`='"+ lecturer.lecturername + "', " +
-                           "`center`='"+ lecturer.center + "', " +
-                           "`employeeid`='"+ lecturer.employeeid + "', " +
-                           "`building`='" + lecturer.building + "', " +
-                           "`faculty`='" + lecturer.faculty + "', " +
-                           "`level`='" + lecturer.level + "', " +
-                           "`department`='" + lecturer.department + "', " +
-                           "`rank`='" + lecturer.rank + "' " +
-                           " WHERE `lecturerid` = " + lecturer.lecturerid;
+            string query = "UPDATE tag SET `tagName`='" + tag.tagName + "', " +
+                           "`tagCode`='" + tag.tagCode + "', " +
+                           "`relatedTag`='" + tag.relatedTag + "', " +
+                           " WHERE `tagId` = " + tag.tagId;
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -149,9 +140,9 @@ namespace TimeTableT.Controllers
             }
         }
 
-        public static string DeleteLecturer(int lecturerid)
+        public static string DeleteTag(int tagId)
         {
-            string query = "DELETE FROM Lecturer WHERE `lecturerid` = " + lecturerid;
+            string query = "DELETE FROM Students WHERE `tagId` = " + tagId;
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -168,6 +159,5 @@ namespace TimeTableT.Controllers
                 return ex.Message;
             }
         }
-
     }
 }
