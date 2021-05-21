@@ -128,6 +128,31 @@
     <Compile Include="AddSubject.Designer.cs">
       <DependentUpon>AddSubject.cs</DependentUpon>
     </Compile>
+
+    <Compile Include="AddWorkingWeek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddWorkingWeek.Designer.cs">
+      <DependentUpon>AddWorkingWeek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\LecturerController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\NotAvailableTimeController.cs" />
+    <Compile Include="Controllers\WorkingDateAndTimeController.cs" />
+    <Compile Include="Controllers\WorkingWeekController.cs" />
+    <Compile Include="AddLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddLocation.Designer.cs">
+      <DependentUpon>AddLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListWorkingWeek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListWorkingWeek.Designer.cs">
+      <DependentUpon>ListWorkingWeek.cs</DependentUpon>
+    </Compile>
+
     <Compile Include="AddTag.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,11 +185,18 @@
       <DependentUpon>itpmDataSet.xsd</DependentUpon>
     </Compile>
 
+
     <Compile Include="ManageLecturers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ManageLecturers.Designer.cs">
       <DependentUpon>ManageLecturers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageNotAvailableTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageNotAvailableTime.Designer.cs">
+      <DependentUpon>ManageNotAvailableTime.cs</DependentUpon>
     </Compile>
     <Compile Include="ManageSessions.cs">
       <SubType>Form</SubType>
@@ -192,12 +224,25 @@
     </Compile>
     <Compile Include="Models\Lecturer.cs" />
 
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\NotAvailableTime.cs" />
+    <Compile Include="Models\WorkingDateAndTime.cs" />
+    <Compile Include="Models\WorkingWeek.cs" />
+    <Compile Include="NotAvailableTimeAllocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotAvailableTimeAllocation.Designer.cs">
+      <DependentUpon>NotAvailableTimeAllocation.cs</DependentUpon>
+    </Compile>
+
+
     <Compile Include="Models\Sessions.cs" />
     <Compile Include="Models\Students.cs" />
     <Compile Include="Models\Tag.cs" />
 
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\Subject.cs" />
+
 
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -207,20 +252,37 @@
     <Compile Include="UpdateSession.Designer.cs">
       <DependentUpon>UpdateSession.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateWorkingDateAndTimeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateWorkingDateAndTimeForm.Designer.cs">
+      <DependentUpon>UpdateWorkingDateAndTimeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View.Designer.cs">
       <DependentUpon>View.cs</DependentUpon>
     </Compile>
+
+    <Compile Include="WorkingDateAndTimeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkingDateAndTimeForm.Designer.cs">
+      <DependentUpon>WorkingDateAndTimeForm.cs</DependentUpon>
+
     <Compile Include="Welcome.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Welcome.Designer.cs">
       <DependentUpon>Welcome.cs</DependentUpon>
+
     </Compile>
     <EmbeddedResource Include="AddLecturer.resx">
       <DependentUpon>AddLecturer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddLocation.resx">
+      <DependentUpon>AddLocation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddSession.resx">
       <DependentUpon>AddSession.cs</DependentUpon>
@@ -231,6 +293,13 @@
     <EmbeddedResource Include="AddSubject.resx">
       <DependentUpon>AddSubject.cs</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="AddWorkingWeek.resx">
+      <DependentUpon>AddWorkingWeek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListWorkingWeek.resx">
+      <DependentUpon>ListWorkingWeek.cs</DependentUpon>
+
 
     <EmbeddedResource Include="AddTag.resx">
       <DependentUpon>AddTag.cs</DependentUpon>
@@ -245,6 +314,9 @@
     <EmbeddedResource Include="ManageLecturers.resx">
       <DependentUpon>ManageLecturers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManageNotAvailableTime.resx">
+      <DependentUpon>ManageNotAvailableTime.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManageSessions.resx">
       <DependentUpon>ManageSessions.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,8 +326,13 @@
     <EmbeddedResource Include="ManageSubjects.resx">
       <DependentUpon>ManageSubjects.cs</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="NotAvailableTimeAllocation.resx">
+      <DependentUpon>NotAvailableTimeAllocation.cs</DependentUpon>
+
     <EmbeddedResource Include="ManageTag.resx">
       <DependentUpon>ManageTag.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -270,9 +347,17 @@
     <EmbeddedResource Include="UpdateSession.resx">
       <DependentUpon>UpdateSession.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UpdateWorkingDateAndTimeForm.resx">
+      <DependentUpon>UpdateWorkingDateAndTimeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View.resx">
       <DependentUpon>View.cs</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="WorkingDateAndTimeForm.resx">
+      <DependentUpon>WorkingDateAndTimeForm.cs</DependentUpon>
+    </EmbeddedResource>
+
     <EmbeddedResource Include="Welcome.resx">
       <DependentUpon>Welcome.cs</DependentUpon>
     </EmbeddedResource>
@@ -288,6 +373,7 @@
       <DependentUpon>itpmDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
