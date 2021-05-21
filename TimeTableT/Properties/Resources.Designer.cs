@@ -63,6 +63,36 @@ namespace TimeTableT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddWorkingWeek {
+            get {
+                object obj = ResourceManager.GetObject("AddWorkingWeek", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Consecutive {
+            get {
+                object obj = ResourceManager.GetObject("Consecutive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ListWorkingWeek {
+            get {
+                object obj = ResourceManager.GetObject("ListWorkingWeek", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logoonly {
             get {
                 object obj = ResourceManager.GetObject("logoonly", resourceCulture);
@@ -86,6 +116,36 @@ namespace TimeTableT.Properties {
         internal static System.Drawing.Bitmap logottms31 {
             get {
                 object obj = ResourceManager.GetObject("logottms31", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ManageNotAvailableTime {
+            get {
+                object obj = ResourceManager.GetObject("ManageNotAvailableTime", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NotAvailableTimeAllocation {
+            get {
+                object obj = ResourceManager.GetObject("NotAvailableTimeAllocation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sidepanelallocation {
+            get {
+                object obj = ResourceManager.GetObject("sidepanelallocation", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,6 +343,16 @@ namespace TimeTableT.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SubButtonTemplateManageLocations1 {
+            get {
+                object obj = ResourceManager.GetObject("SubButtonTemplateManageLocations1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SubButtonTemplateManageSessions {
             get {
                 object obj = ResourceManager.GetObject("SubButtonTemplateManageSessions", resourceCulture);
@@ -326,6 +396,26 @@ namespace TimeTableT.Properties {
         internal static System.Drawing.Bitmap SubButtonTemplateManageTags {
             get {
                 object obj = ResourceManager.GetObject("SubButtonTemplateManageTags", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UpdateWorkingDateAndTimeForm {
+            get {
+                object obj = ResourceManager.GetObject("UpdateWorkingDateAndTimeForm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WorkingDateAndTime {
+            get {
+                object obj = ResourceManager.GetObject("WorkingDateAndTime", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
