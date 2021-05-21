@@ -30,8 +30,8 @@ namespace TimeTableT
         private void InitializeComponent()
         {
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -40,19 +40,19 @@ namespace TimeTableT
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            this.comboOfferedyear = new System.Windows.Forms.ComboBox();
+            this.txtSubjectcode = new System.Windows.Forms.TextBox();
+            this.rdbSemester1 = new System.Windows.Forms.RadioButton();
+            this.rdbSemester2 = new System.Windows.Forms.RadioButton();
+            this.txtSubjectname = new System.Windows.Forms.TextBox();
+            this.numericLhrs = new System.Windows.Forms.NumericUpDown();
+            this.numericThrs = new System.Windows.Forms.NumericUpDown();
+            this.numericEhrs = new System.Windows.Forms.NumericUpDown();
+            this.numericLabhrs = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLhrs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericThrs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEhrs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLabhrs)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -66,29 +66,30 @@ namespace TimeTableT
             this.label3.TabIndex = 38;
             this.label3.Text = "Add Subject";
             // 
-            // button2
+            // btnSave
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(50)))));
-            this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(242)))), ((int)(((byte)(246)))));
-            this.button2.Location = new System.Drawing.Point(559, 296);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(134, 47);
-            this.button2.TabIndex = 37;
-            this.button2.Text = "Save";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(50)))));
+            this.btnSave.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(242)))), ((int)(((byte)(246)))));
+            this.btnSave.Location = new System.Drawing.Point(559, 296);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(134, 47);
+            this.btnSave.TabIndex = 37;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // button1
+            // btnClear
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(142)))), ((int)(((byte)(53)))));
-            this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(242)))), ((int)(((byte)(246)))));
-            this.button1.Location = new System.Drawing.Point(416, 296);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 47);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "Clear";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(142)))), ((int)(((byte)(53)))));
+            this.btnClear.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(242)))), ((int)(((byte)(246)))));
+            this.btnClear.Location = new System.Drawing.Point(416, 296);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(134, 47);
+            this.btnClear.TabIndex = 36;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
             // 
             // label9
             // 
@@ -178,87 +179,92 @@ namespace TimeTableT
             this.label1.TabIndex = 28;
             this.label1.Text = "Offered year";
             // 
-            // comboBox2
+            // comboOfferedyear
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(193, 109);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(149, 21);
-            this.comboBox2.TabIndex = 24;
+            this.comboOfferedyear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.comboOfferedyear.FormattingEnabled = true;
+            this.comboOfferedyear.Items.AddRange(new object[] {
+            "2019",
+            "2020",
+            "2021",
+            "2022"});
+            this.comboOfferedyear.Location = new System.Drawing.Point(193, 109);
+            this.comboOfferedyear.Name = "comboOfferedyear";
+            this.comboOfferedyear.Size = new System.Drawing.Size(149, 21);
+            this.comboOfferedyear.TabIndex = 24;
             // 
-            // textBox2
+            // txtSubjectcode
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.textBox2.Location = new System.Drawing.Point(193, 234);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(149, 20);
-            this.textBox2.TabIndex = 21;
+            this.txtSubjectcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.txtSubjectcode.Location = new System.Drawing.Point(193, 234);
+            this.txtSubjectcode.Name = "txtSubjectcode";
+            this.txtSubjectcode.Size = new System.Drawing.Size(149, 20);
+            this.txtSubjectcode.TabIndex = 21;
             // 
-            // radioButton1
+            // rdbSemester1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.radioButton1.Location = new System.Drawing.Point(194, 154);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(84, 17);
-            this.radioButton1.TabIndex = 39;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "1st semester";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdbSemester1.AutoSize = true;
+            this.rdbSemester1.Checked = true;
+            this.rdbSemester1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.rdbSemester1.Location = new System.Drawing.Point(194, 154);
+            this.rdbSemester1.Name = "rdbSemester1";
+            this.rdbSemester1.Size = new System.Drawing.Size(84, 17);
+            this.rdbSemester1.TabIndex = 39;
+            this.rdbSemester1.TabStop = true;
+            this.rdbSemester1.Text = "1st semester";
+            this.rdbSemester1.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdbSemester2
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.radioButton2.Location = new System.Drawing.Point(295, 154);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(88, 17);
-            this.radioButton2.TabIndex = 40;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "2nd semester";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdbSemester2.AutoSize = true;
+            this.rdbSemester2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.rdbSemester2.Location = new System.Drawing.Point(295, 154);
+            this.rdbSemester2.Name = "rdbSemester2";
+            this.rdbSemester2.Size = new System.Drawing.Size(88, 17);
+            this.rdbSemester2.TabIndex = 40;
+            this.rdbSemester2.TabStop = true;
+            this.rdbSemester2.Text = "2nd semester";
+            this.rdbSemester2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtSubjectname
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.textBox1.Location = new System.Drawing.Point(193, 192);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 20);
-            this.textBox1.TabIndex = 41;
+            this.txtSubjectname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.txtSubjectname.Location = new System.Drawing.Point(193, 192);
+            this.txtSubjectname.Name = "txtSubjectname";
+            this.txtSubjectname.Size = new System.Drawing.Size(149, 20);
+            this.txtSubjectname.TabIndex = 41;
             // 
-            // numericUpDown1
+            // numericLhrs
             // 
-            this.numericUpDown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.numericUpDown1.Location = new System.Drawing.Point(627, 111);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(63, 20);
-            this.numericUpDown1.TabIndex = 42;
+            this.numericLhrs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.numericLhrs.Location = new System.Drawing.Point(627, 111);
+            this.numericLhrs.Name = "numericLhrs";
+            this.numericLhrs.Size = new System.Drawing.Size(63, 20);
+            this.numericLhrs.TabIndex = 42;
             // 
-            // numericUpDown2
+            // numericThrs
             // 
-            this.numericUpDown2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.numericUpDown2.Location = new System.Drawing.Point(627, 154);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(63, 20);
-            this.numericUpDown2.TabIndex = 43;
+            this.numericThrs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.numericThrs.Location = new System.Drawing.Point(627, 154);
+            this.numericThrs.Name = "numericThrs";
+            this.numericThrs.Size = new System.Drawing.Size(63, 20);
+            this.numericThrs.TabIndex = 43;
             // 
-            // numericUpDown3
+            // numericEhrs
             // 
-            this.numericUpDown3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.numericUpDown3.Location = new System.Drawing.Point(627, 232);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(63, 20);
-            this.numericUpDown3.TabIndex = 44;
+            this.numericEhrs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.numericEhrs.Location = new System.Drawing.Point(627, 232);
+            this.numericEhrs.Name = "numericEhrs";
+            this.numericEhrs.Size = new System.Drawing.Size(63, 20);
+            this.numericEhrs.TabIndex = 44;
             // 
-            // numericUpDown4
+            // numericLabhrs
             // 
-            this.numericUpDown4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.numericUpDown4.Location = new System.Drawing.Point(627, 192);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(63, 20);
-            this.numericUpDown4.TabIndex = 45;
+            this.numericLabhrs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.numericLabhrs.Location = new System.Drawing.Point(627, 192);
+            this.numericLabhrs.Name = "numericLabhrs";
+            this.numericLabhrs.Size = new System.Drawing.Size(63, 20);
+            this.numericLabhrs.TabIndex = 45;
             // 
             // AddSubject
             // 
@@ -266,16 +272,16 @@ namespace TimeTableT
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(98)))), ((int)(((byte)(117)))));
             this.ClientSize = new System.Drawing.Size(748, 394);
-            this.Controls.Add(this.numericUpDown4);
-            this.Controls.Add(this.numericUpDown3);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.numericLabhrs);
+            this.Controls.Add(this.numericEhrs);
+            this.Controls.Add(this.numericThrs);
+            this.Controls.Add(this.numericLhrs);
+            this.Controls.Add(this.txtSubjectname);
+            this.Controls.Add(this.rdbSemester2);
+            this.Controls.Add(this.rdbSemester1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -284,14 +290,15 @@ namespace TimeTableT
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.comboOfferedyear);
+            this.Controls.Add(this.txtSubjectcode);
             this.Name = "AddSubject";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddSubject";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLhrs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericThrs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericEhrs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLabhrs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,8 +307,8 @@ namespace TimeTableT
         #endregion
 
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -310,14 +317,14 @@ namespace TimeTableT
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.ComboBox comboOfferedyear;
+        private System.Windows.Forms.TextBox txtSubjectcode;
+        private System.Windows.Forms.RadioButton rdbSemester1;
+        private System.Windows.Forms.RadioButton rdbSemester2;
+        private System.Windows.Forms.TextBox txtSubjectname;
+        private System.Windows.Forms.NumericUpDown numericLhrs;
+        private System.Windows.Forms.NumericUpDown numericThrs;
+        private System.Windows.Forms.NumericUpDown numericEhrs;
+        private System.Windows.Forms.NumericUpDown numericLabhrs;
     }
 }

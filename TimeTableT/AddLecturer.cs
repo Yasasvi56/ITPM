@@ -23,9 +23,14 @@ namespace TimeTableT
         {
             try
             {
+                int empidlength = txtemployeeid.Text.Length;
                 bool isvalidated = validatefields();
                 if (isvalidated)
                 {
+                    if (empidlength != 6)
+                    {
+                        throw new Exception("Employee id should be 6 digit number");
+                    }
                     Lecturer lecturer = new Lecturer();
                     lecturer.lecturername = txtlecturername.Text;
                     lecturer.center = combocenter.SelectedItem.ToString();
@@ -56,10 +61,10 @@ namespace TimeTableT
 
         private bool validatefields() 
         {
-            if (txtlecturername.Text != "" || combocenter.SelectedIndex != -1 
-                || txtemployeeid.Text != "" || combobuilding.SelectedIndex != -1
-                || combofaculty.SelectedIndex != -1 || combolevel.SelectedIndex != -1
-                || combodepartment.SelectedIndex != -1)
+            if (txtlecturername.Text != "" && combocenter.SelectedIndex != -1
+                && txtemployeeid.Text != "" && combobuilding.SelectedIndex != -1
+                && combofaculty.SelectedIndex != -1 && combolevel.SelectedIndex != -1
+                && combodepartment.SelectedIndex != -1)
             {
                 return true;
             }
