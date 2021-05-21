@@ -318,11 +318,13 @@ namespace TimeTableT
             this.Controls.Add(this.txtLec);
             this.Controls.Add(this.comboYear);
             this.Controls.Add(this.dataGridView1);
+
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(885, 433);
             this.MinimumSize = new System.Drawing.Size(885, 433);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageSessions";
+
             this.Load += new System.EventHandler(this.ManageSessions_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSession)).EndInit();
