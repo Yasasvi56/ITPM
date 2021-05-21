@@ -84,9 +84,10 @@ namespace TimeTableT
             this.combobuilding.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.combobuilding.FormattingEnabled = true;
             this.combobuilding.Items.AddRange(new object[] {
-            "building01",
-            "building02",
-            "building03"});
+            "New building",
+            "D-block",
+            "Engineering building",
+            "Computing building"});
             this.combobuilding.Location = new System.Drawing.Point(453, 147);
             this.combobuilding.Name = "combobuilding";
             this.combobuilding.Size = new System.Drawing.Size(149, 21);
@@ -97,9 +98,10 @@ namespace TimeTableT
             this.combofaculty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.combofaculty.FormattingEnabled = true;
             this.combofaculty.Items.AddRange(new object[] {
-            "faculty1",
-            "faculty2",
-            "faculty3"});
+            "Computing",
+            "Engineering",
+            "Business",
+            "Humanities & Sciences"});
             this.combofaculty.Location = new System.Drawing.Point(169, 188);
             this.combofaculty.Name = "combofaculty";
             this.combofaculty.Size = new System.Drawing.Size(149, 21);
@@ -110,9 +112,13 @@ namespace TimeTableT
             this.combodepartment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.combodepartment.FormattingEnabled = true;
             this.combodepartment.Items.AddRange(new object[] {
-            "dept1",
-            "dept2",
-            "dept3"});
+            "Information Technology",
+            "Network engineering",
+            "Software Engineering",
+            "Cyber Security",
+            "Interactive Media",
+            "Business Management",
+            "Materials engineers"});
             this.combodepartment.Location = new System.Drawing.Point(169, 227);
             this.combodepartment.Name = "combodepartment";
             this.combodepartment.Size = new System.Drawing.Size(149, 21);
@@ -140,9 +146,12 @@ namespace TimeTableT
             this.combocenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.combocenter.FormattingEnabled = true;
             this.combocenter.Items.AddRange(new object[] {
-            "center01",
-            "center02",
-            "center03"});
+            "Malabe",
+            "Metro",
+            "Matara",
+            "Kandy",
+            "Kurunagala",
+            "Jaffna"});
             this.combocenter.Location = new System.Drawing.Point(453, 105);
             this.combocenter.Name = "combocenter";
             this.combocenter.Size = new System.Drawing.Size(149, 21);
@@ -303,6 +312,9 @@ namespace TimeTableT
             this.Controls.Add(this.txtrank);
             this.Controls.Add(this.txtlecturername);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(673, 413);
+            this.MinimumSize = new System.Drawing.Size(673, 413);
             this.Name = "AddLecturer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
